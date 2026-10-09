@@ -1,0 +1,982 @@
+/* =========================
+   General
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    color: #111827;
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: min(1120px, 90%);
+    margin: auto;
+}
+
+
+/* =========================
+   Header
+========================= */
+
+.header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+
+    background: rgba(11, 15, 25, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.header .container {
+    min-height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.navbar {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar a {
+    color: #d1d5db;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #38bdf8;
+}
+
+.menu-btn {
+    display: none;
+
+    border: none;
+    background: none;
+
+    color: white;
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   Hero
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(circle at 80% 30%, #12365c 0%, transparent 35%),
+        #0b0f19;
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+
+    padding-top: 75px;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+    gap: 60px;
+}
+
+.hero-badge {
+    display: inline-block;
+
+    padding: 7px 15px;
+
+    border: 1px solid #38bdf8;
+    border-radius: 50px;
+
+    color: #38bdf8;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1.15;
+
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    display: block;
+    color: #38bdf8;
+}
+
+.hero p {
+    max-width: 550px;
+
+    color: #cbd5e1;
+
+    font-size: 18px;
+
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+
+    padding: 13px 25px;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.primary-btn {
+    background: #38bdf8;
+    color: #06111c;
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+}
+
+.secondary-btn {
+    border: 1px solid #475569;
+    color: white;
+}
+
+.secondary-btn:hover {
+    background: #1e293b;
+}
+
+/* =========================
+   Real Phone
+========================= */
+
+.hero-image {
+    position: relative;
+
+    min-height: 150px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-phone {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(390px, 80%);
+
+    height: auto;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 30px 35px rgba(0, 0, 0, 0.45));
+
+    transform: rotate(4deg);
+
+    transition: 0.5s ease;
+}
+
+.hero-phone:hover {
+    animation-play-state: paused;
+
+    transform:
+        translateY(-10px)
+        rotate(0deg)
+        scale(1.03);
+}
+
+
+/* Glow خلف الهاتف */
+
+.phone-glow {
+    position: absolute;
+
+    width: 320px;
+    height: 320px;
+
+    border-radius: 50%;
+
+    background: #38bdf8;
+
+    filter: blur(100px);
+
+    opacity: 0.25;
+
+    z-index: 1;
+}
+
+
+/* =========================
+   Sections
+========================= */
+
+.products,
+.why-us,
+.contact {
+    padding: 100px 0;
+}
+
+.section-title {
+    text-align: center;
+
+    max-width: 650px;
+
+    margin: 0 auto 55px;
+}
+
+.section-title > span {
+    color: #2563eb;
+
+    font-weight: bold;
+}
+
+.section-title h2 {
+    font-size: 40px;
+
+    margin: 8px 0 12px;
+}
+
+.section-title p {
+    color: #64748b;
+}
+
+
+/* =========================
+   Products
+========================= */
+
+.products {
+    background: #f8fafc;
+}
+
+.products-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.product-card {
+    padding: 30px;
+
+    background: white;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    transition: 0.3s;
+}
+
+.product-image {
+    height: 220px;
+
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    background: #f1f5f9;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: 0.4s;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.08);
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 15px 40px rgba(15, 23, 42, 0.1);
+}
+
+.product-icon {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    margin-bottom: 10px;
+}
+
+.product-card p {
+    color: #64748b;
+}
+
+.product-card button {
+    margin: 13px;
+}
+
+
+/* =========================
+   Why Us
+========================= */
+
+.features-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.feature {
+    display: flex;
+    gap: 20px;
+
+    padding: 25px;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 15px;
+}
+
+.feature > span {
+    width: 45px;
+    height: 45px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #dbeafe;
+    color: #2563eb;
+
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.feature p {
+    color: #64748b;
+}
+
+
+/* =========================
+   Contact
+========================= */
+
+.contact {
+    background: #0b0f19;
+
+    color: white;
+
+    text-align: center;
+}
+
+.contact-content {
+    max-width: 700px;
+}
+
+.contact-content > span {
+    color: #38bdf8;
+
+    font-weight: bold;
+}
+
+.contact h2 {
+    font-size: 42px;
+
+    margin: 10px 0 15px;
+}
+
+.contact p {
+    color: #cbd5e1;
+
+    margin-bottom: 30px;
+}
+
+.contact-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+.whatsapp-btn {
+    background: #22c55e;
+    color: white;
+}
+
+.call-btn {
+    border: 1px solid #475569;
+}
+
+
+/* =========================
+   Footer
+========================= */
+
+.footer {
+    padding: 25px 0;
+
+    background: #070a12;
+
+    color: #94a3b8;
+
+    text-align: center;
+}
+
+.footer p {
+    color: white;
+
+    font-weight: bold;
+
+    margin-bottom: 5px;
+}
+
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 900px) {
+
+    .hero-content {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+    }
+
+    .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image {
+        min-height: 400px;
+    }
+
+   .hero-phone {
+       width: 280px;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .navbar {
+        position: absolute;
+
+        top: 75px;
+        right: 0;
+        left: 0;
+
+        display: none;
+
+        flex-direction: column;
+
+        gap: 0;
+
+        background: #0b0f19;
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+
+    .navbar a {
+        padding: 15px 5%;
+
+        border-top: 1px solid #1e293b;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .hero {
+        min-height: auto;
+
+        padding-top: 150px;
+        padding-bottom: 100px;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .products,
+    .why-us,
+    .contact {
+        padding: 70px 0;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title h2 {
+        font-size: 32px;
+    }
+
+    .contact h2 {
+        font-size: 32px;
+    }
+}
+
+/* =========================
+   Theme Button
+========================= */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.theme-btn {
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid #334155;
+    border-radius: 50%;
+
+    background: #111827;
+    color: white;
+
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   LIGHT MODE
+========================= */
+
+body.light-mode {
+    background: #ffffff;
+    color: #111827;
+}
+
+
+/* Header */
+
+body.light-mode .header {
+    background: rgba(255, 255, 255, 0.95);
+}
+
+body.light-mode .logo {
+    color: #111827;
+}
+
+body.light-mode .navbar a {
+    color: #334155;
+}
+
+
+/* Hero */
+
+body.light-mode .hero {
+    background: #f8fafc;
+    color: #111827;
+}
+
+body.light-mode .hero p {
+    color: #475569;
+}
+
+body.light-mode .secondary-btn {
+    color: #111827;
+    border-color: #cbd5e1;
+}
+
+
+/* Products */
+
+body.light-mode .products {
+    background: #f1f5f9;
+}
+
+
+/* Why Us */
+
+body.light-mode .why-us {
+    background: #ffffff;
+}
+
+body.light-mode .feature {
+    background: #ffffff;
+}
+
+
+/* Contact */
+
+body.light-mode .contact {
+    background: #e2e8f0;
+    color: #111827;
+}
+
+body.light-mode .contact p {
+    color: #475569;
+}
+
+
+/* Footer */
+
+body.light-mode .footer {
+    background: #cbd5e1;
+    color: #475569;
+}
+
+body.light-mode .footer p {
+    color: #111827;
+}
+
+
+/* Mobile */
+
+@media (max-width: 650px) {
+
+    body.light-mode .navbar {
+        background: #ffffff;
+    }
+
+}
+
+/* =========================
+   Professional Effects
+========================= */
+
+
+/* Smooth transitions */
+
+.header,
+.product-card,
+.feature,
+.btn,
+.hero-phone,
+.theme-btn {
+    transition: all 0.35s ease;
+}
+
+
+/* =========================
+   Hero Phone Animation
+========================= */
+
+.hero-phone {
+    animation: phoneFloat 4s ease-in-out infinite;
+}
+
+@keyframes phoneFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(4deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(4deg);
+    }
+
+}
+
+
+/* =========================
+   Phone Glow Animation
+========================= */
+
+.phone-glow {
+    animation: glowPulse 4s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.35;
+        transform: scale(1.15);
+    }
+
+}
+
+
+/* =========================
+   Buttons
+========================= */
+
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    transition: 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================
+   Product Cards
+========================= */
+
+.product-card {
+    position: relative;
+
+    overflow: hidden;
+}
+
+.product-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background: #38bdf8;
+
+    transform: scaleX(0);
+
+    transform-origin: right;
+
+    transition: 0.4s;
+}
+
+.product-card:hover::before {
+    transform: scaleX(1);
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+}
+
+
+/* =========================
+   Feature Cards
+========================= */
+
+.feature {
+    transition: 0.35s;
+}
+
+.feature:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 15px 35px rgba(15, 23, 42, 0.08);
+}
+
+.feature > span {
+    transition: 0.35s;
+}
+
+.feature:hover > span {
+    transform: rotate(10deg) scale(1.1);
+}
+
+
+/* =========================
+   Section Titles
+========================= */
+
+.section-title h2 {
+    position: relative;
+}
+
+.section-title h2::after {
+    content: "";
+
+    display: block;
+
+    width: 55px;
+    height: 3px;
+
+    margin: 15px auto 0;
+
+    background: #38bdf8;
+
+    border-radius: 50px;
+}
+
+
+/* =========================
+   Header Scroll Effect
+========================= */
+
+.header.scrolled {
+    background: rgba(7, 10, 18, 0.98);
+
+    box-shadow:
+        0 5px 25px rgba(0, 0, 0, 0.2);
+}
+
+
+/* =========================
+   Scroll Reveal
+========================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(40px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================
+   Accessibility
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+
+        transition-duration: 0.01ms !important;
+    }
+
+}
+
+/* =========================
+   Language Button
+========================= */
+
+.language-btn {
+    min-width: 42px;
+    height: 42px;
+
+    padding: 0 10px;
+
+    border: 1px solid #334155;
+    border-radius: 8px;
+
+    background: #111827;
+    color: white;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.language-btn:hover {
+    background: #1e293b;
+
+    transform: translateY(-2px);
+}
